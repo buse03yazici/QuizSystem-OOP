@@ -20,13 +20,27 @@ public  MultipleChoiceQuestion(String text, String[] options, int correctIndex) 
         this.options=options;
         this.correctIndex=correctIndex; 
 } 
-		
+	
 
+
+/**
+ * Checks if the user's choice (A,B,C,D) matches the correct index.
+ * Overrides the abstract method from Question class. (Polymorphism)    */
 @Override
 public boolean checkAnswer(String answer) {
-	return false;
-
+	if (answer == null || answer.isEmpty()) return false;
+	char userChar=answer.trim().toUpperCase().charAt(0);
+	int userChoiceIndex= userChar-'A';
+	
+	return userChoiceIndex==correctIndex;
 }
+
+/**Prints the answer options with A,B,C... labels. */
+public void printOptions() {
+    for (int i = 0; i < options.length; i++) {
+        char label = (char) ('A' + i);
+        System.out.println(label + " - " + options[i]);  }
+ }
 } 
 
 
