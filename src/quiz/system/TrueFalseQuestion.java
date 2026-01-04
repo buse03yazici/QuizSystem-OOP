@@ -18,6 +18,12 @@ public class TrueFalseQuestion extends Question {
 		super(text);
 		this.correctAnswer=correctAnswer;
 		}
+	
+@Override
+public void display() {
+	System.out.println(getText());
+	System.out.println("True / False"); 
+}
 
 		
 /** 
