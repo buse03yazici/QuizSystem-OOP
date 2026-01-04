@@ -1,0 +1,5 @@
+MCQ|What keyword is used to inherit a class in Java?|implements,extends,inherits,super|1
+TF|A class is a blueprint for creating objects.|true
+TF|Abstract classes cannot have constructors.|false
+MCQ|Which of these is NOT a pillar of OOP?|Inheritance,Polymorphism,Compilation,Abstraction|2
+TF|An interface can contain method implementations in Java.|true 
