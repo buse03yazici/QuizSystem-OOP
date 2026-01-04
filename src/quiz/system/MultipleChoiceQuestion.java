@@ -20,7 +20,13 @@ public  MultipleChoiceQuestion(String text, String[] options, int correctIndex) 
         this.options=options;
         this.correctIndex=correctIndex; 
 } 
-	
+
+
+@Override
+public void display() {
+    System.out.println(getText());
+    printOptions();
+}
 
 
 /**
@@ -39,7 +45,7 @@ public boolean checkAnswer(String answer) {
 public void printOptions() {
     for (int i = 0; i < options.length; i++) {
         char label = (char) ('A' + i);
-        System.out.println(label + " - " + options[i]);  }
+        System.out.println(label + " - " + options[i]);}
  }
 } 
 

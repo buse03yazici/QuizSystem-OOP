@@ -4,7 +4,7 @@ package quiz.system;
  * Base class for all types of questions.
  * Implementents Gradable interface and provides inheritance for subclasses.
  */
-public abstract class Question implements Gradable {
+public abstract class Question  {
 	
 /**The question text-protected so subclasses can access it */
 protected String text;
@@ -28,6 +28,8 @@ public String getText() {
 	return text;
 }
 
+public abstract void display();
+
 
 /**
  * Abstract method to be implemented by MC and TF questions.
@@ -35,6 +37,6 @@ public String getText() {
  * @param answer The user's input.
  * @return true if correct, false otherwise.
  */
-@Override
+
 public abstract boolean checkAnswer(String answer);
 }
