@@ -5,10 +5,16 @@ package quiz.system;
  * It is a core part of the system's "Interface" implementation.   
  */
 public interface Gradable {
+	
+	
 	/**
-	 * Checks if the provided answer is correct according to the specific question.
-	 * @param answer The input string provided by the student. 
-	 *  
+	 * Calculates the total score based on the student's performance.
+	 * @return The final score as an integer.
 	 *  */
-   boolean checkAnswer(String answer);
+	int calculateScore();
+	
+	/**
+	 * Displays the final results and scores to the console.
+	 */
+	void showResults();
 }
