@@ -37,15 +37,15 @@ public void display() {
 	
 	
 	String input= answer.trim().toLowerCase();
-	String correctStr= String.valueOf(correctAnswer).toLowerCase();
+	String correctStr= String.valueOf(this.correctAnswer).toLowerCase();
 		
 		//first control: exact match (true/false)
-		if (input.equals(correctStr)|| (input.length()==1 && input.charAt(0)==correctStr.charAt(0))){
+		if (input.equals(correctStr)){
 			return true;
 		}
 		//tolerance for spelling errors such as ttru or ffalse
-		//if the first 2 letter match,correct answer is included 
-		if (input.length() >= 2 && (input.startsWith(correctStr.substring(0, 2)) || input.contains(correctStr))) {
+		//if the first letter is true and has at least 3 letters
+		if (input.length() >= 3 && input.startsWith(correctStr.substring(0, 1))) {
 			System.out.println("(!)Spelling mistake detected in TF,but accepted: "+ correctStr);
 			return true;
 		}

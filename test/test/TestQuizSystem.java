@@ -10,7 +10,7 @@ import java.io.File;
  * This class verifies the integration between the Quiz class and the external questions file.
  * that the system can correctly locate and load questions from an external file.
  * @author Buse
- * @version 1.0
+ * @version 1.1
  */
 public class TestQuizSystem {
 	
@@ -35,4 +35,22 @@ public class TestQuizSystem {
 		
 		System.out.println("Integration Test Status: File loaded and Quiz object initialized sucessfully");
 	}
+	
+    /**
+     *Verifies that the saveResultToFile method correctly creates the "result.txt" file in th project directory.
+     */
+	@Test
+	public void testSaveResultsToFileCreation() {
+		Quiz quiz = new Quiz("questions.txt");
+		String testName="Test Student";
+		String testID="12345";
+		
+		quiz.saveResultsToFile(testName, testID);
+		
+		File resultsFile= new File("results.txt");
+		assertTrue(resultsFile.exists(), "Test Failed: results.txt was not created by saveResultsToFile method.");
+		
+		System.out.println("Result Saving Test Status: results.txt verified.");
+	}
 }
+

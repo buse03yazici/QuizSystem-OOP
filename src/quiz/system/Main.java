@@ -29,7 +29,8 @@ public class Main {
 		
 		//to initialize the Quiz object with the source file.
 		Quiz quiz= new Quiz("questions.txt"); 
-		quiz.start(name + " " + surname);
+		quiz.start(name + " " + surname); 
+		quiz.saveResultsToFile(name + " " + surname, studentID); //saving file
 		student.setScore(quiz.calculateScore());
 		
 		scanner.close();

@@ -37,24 +37,20 @@ public boolean checkAnswer(String answer) {
 	if (answer == null || answer.isEmpty()) return false;
 	
 	String input=answer.trim().toLowerCase();
-	String correctWord= options[correctIndex].toLowerCase();
-	char correctChar=(char)('a'+correctIndex);
+	String correctAnswerText = options[correctIndex].toLowerCase();
+	String correctLetter = String.valueOf((char)('a' + correctIndex));
 	
-	//Checks the letter of the answer choice (A,B,C...)
-	if(input.length()==1) {
-		return input.charAt(0)==correctChar;
+	//exact match (letter or a word)
+	if (input.equals(correctLetter) || input.equals(correctAnswerText)) {
+		return true; 
+		
 	}
-	//Similarity of the exact word or "first 3 letters"(even if it is "extended", it catches it from the first letters
-	if (input.equals(correctWord) ||
-		(input.length() >=3 && correctWord.startsWith(input.substring(0,3)))||
-		(input.length() >= 3 && input.startsWith(correctWord.substring(0, 3)))) {
-        	System.out.println("(!)You may have a spelling mistake,but it is accepted as correct.: " + options[correctIndex]);	
+	//if the input is longer then 3 letters and appears in the correct answer
+	if (input.length()>= 3 && correctAnswerText.contains(input)|| input.contains(correctAnswerText.substring(0,3))) {
+		System.out.println("(!)You may have a spelling mistake, but it is accepted as correct: " + options[correctIndex]);
 		return true;
 	}
-	 //general check
-	if(correctWord.length()>=3 && (correctWord.contains(input)|| input.contains(correctWord))) {
-		return true;
-	}
+	 
 	
 	return false;
 }

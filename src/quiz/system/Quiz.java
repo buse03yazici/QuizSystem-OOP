@@ -96,7 +96,9 @@ public class Quiz implements Gradable {
 
 	
 /**
-*Saves the student's results in a txt file. */
+*Saves the student's results in a txt file.
+*@param fullName The student's full name.
+*@param studentID the student's ID number. */
 public void saveResultsToFile(String fullName, String studentID) {
 	try(java.io.PrintWriter writer=new java.io.PrintWriter(new java.io.FileWriter("results.txt",true))){
 		writer.println("---Quiz Result---");
