@@ -38,9 +38,10 @@ public class Quiz implements Gradable {
 				 if (parts[0].equals("MCQ")){
 					 questions.add(new MultipleChoiceQuestion(parts[1], parts[2].split(","), Integer.parseInt(parts[3])));
 				 } else if (parts[0].equals("TF")) {
-					 questions.add(new TrueFalseQuestion(parts[1],Boolean.parseBoolean(parts[2])));
+					 questions.add(new TrueFalseQuestion(parts[1], Boolean.parseBoolean(parts[2].trim())));
 				 }
 			 }
+		java.util.Collections.shuffle(this.questions);
 		} catch (FileNotFoundException e) {
 			    System.out.println("Error:Question file not found.");
 		}
@@ -49,7 +50,7 @@ public class Quiz implements Gradable {
 	/** 
 	 * Starts the quiz, iterates through questions, and uses polymorphism to check answers.
 	 */
-	public void start() {
+	public void start(String studentName) {
 		Scanner scanner=new Scanner(System.in);
 		score=0;
 		
@@ -59,6 +60,7 @@ public class Quiz implements Gradable {
 			//polymorphism: checks if it is a MultipleChoiceQuestion to print options.
 			if(q instanceof MultipleChoiceQuestion) {
 				((MultipleChoiceQuestion)q).printOptions();
+				System.out.println("(You can answer as a letter or word.)");
 			} else if(q instanceof TrueFalseQuestion) {
 				System.out.println("(Type 'true' or 'false')");
 			}
@@ -73,7 +75,8 @@ public class Quiz implements Gradable {
 				System.out.println("Wrong answer");
 			}
 		}
-		showResults(); // we are directed to  Interface method. 
+		System.out.println("\n---Quiz Finished!---");
+		System.out.println(studentName + ",your score is " + calculateScore() + "/" + questions.size());
 		scanner.close();
 	}
 	

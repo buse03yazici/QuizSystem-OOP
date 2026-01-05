@@ -16,14 +16,20 @@ public class Main {
 		//prompt the user for name.
 		System.out.println("Welcome to the Quiz System!");
 		System.out.print("Please enter your name: ");
-		String name= scanner.nextLine(); // to read the student's name.
+		String name= scanner.nextLine(); 
+		System.out.print("Please enter your surname: ");
+		String surname= scanner.nextLine(); 
+		System.out.print("Please enter your student ID: ");
+		String studentID = scanner.nextLine(); 
+	
+		System.out.println("Student ID " + studentID + " recognized. Good luck, " + name + "!");
 		
 		Student student= new Student(name);//to initialize the Student object.
 		
 		
 		//to initialize the Quiz object with the source file.
 		Quiz quiz= new Quiz("questions.txt"); 
-		quiz.start();
+		quiz.start(name + " " + surname);
 		student.setScore(quiz.calculateScore());
 		
 		scanner.close();
