@@ -77,7 +77,7 @@ public class Quiz implements Gradable {
 		}
 		System.out.println("\n---Quiz Finished!---");
 		System.out.println(studentName + ",your score is " + calculateScore() + "/" + questions.size());
-		scanner.close();
+		
 	}
 	
 
@@ -93,5 +93,22 @@ public class Quiz implements Gradable {
 		System.out.println("\n---Quiz Finished---");
 		System.out.println("Your total score is: " + calculateScore()+ "/" + questions.size());
 	}
+
+	
+/**
+*Saves the student's results in a txt file. */
+public void saveResultsToFile(String fullName, String studentID) {
+	try(java.io.PrintWriter writer=new java.io.PrintWriter(new java.io.FileWriter("results.txt",true))){
+		writer.println("---Quiz Result---");
+		writer.println("Student: " + fullName);
+		writer.println("ID: " + studentID);
+		writer.println("Score: " + calculateScore() + "/ " +  questions.size());
+		writer.println("---------------------------");
+		System.out.println("\n[System] Result saved to results.txt");
+	} catch(java.io.IOException e) {
+		System.out.println("Error saving file: " + e.getMessage());
+				
+	}
 }
-		
+}
+
