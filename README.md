@@ -17,7 +17,7 @@ This project is a Java-based application designed to manage quiz questions throu
 2.Enter student credentials.
 3.Complete the quiz and checkation
 * **JUnit5:** Core logic and data encapsulation are verified with unit tests.
-* **Javadoc:** Technical d 'results.txt' for the output.
+* **Javadoc:** Technical documentation is generated and available in the  'results.txt' for the output.
 
 ---
 **Developed by:**Buse 
