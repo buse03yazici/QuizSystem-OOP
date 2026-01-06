@@ -15,9 +15,7 @@ This project is a Java-based application designed to manage quiz questions throu
 ##How to Use
 1.Run 'Main.java'.
 2.Enter student credentials.
-3.Complete the quiz and checkation
-* **JUnit5:** Core logic and data encapsulation are verified with unit tests.
-* **Javadoc:** Technical documentation is generated and available in the  'results.txt' for the output.
+3.Complete the quiz and check "results.txt." for the output. 
 
 ---
 **Developed by:**Buse 
